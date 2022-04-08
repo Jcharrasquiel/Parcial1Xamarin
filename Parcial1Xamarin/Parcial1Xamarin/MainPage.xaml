@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Parcial1Xamarin.MainPage"
+             BackgroundColor="Transparent">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Entry">
+                <Setter Property="PlaceholderColor"
+                        Value="Gray"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="black"/>
+                <Setter Property="FontSize"
+                        Value="15"/>
+                <Setter Property="FontAttributes"
+                        Value="Bold"/>
+            </Style>
+            <Style TargetType="Entry" x:Key="Entry2">
+                <Setter Property="Placeholder"
+                        Value=""/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Padding="30">
+            <AbsoluteLayout Padding="15">
+                <Image Source="https://previews.123rf.com/images/magurok/magurok1610/magurok161000016/64043770-recibo-de-explotaci%C3%B3n-de-la-mano-y-la-mano-que-sostiene-el-dinero-pago-de-una-factura-con-el-concept.jpg"
+                           AbsoluteLayout.LayoutBounds="85,10" HeightRequest="180"/>
+            </AbsoluteLayout>
+            <Frame>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="320"/>
+                        <RowDefinition Height="80"/>
+                    </Grid.RowDefinitions>
+
+                    <StackLayout Grid.Row="1" Padding="3">
+                        <Label Text="Total del consumo"/>
+                        <Entry Placeholder="Valor total" x:Name="Total" Keyboard="Numeric"/>
+                        <Label Text="Numero personas"/>
+                        <Entry Placeholder="Cantidad" x:Name="Numero" Keyboard="Numeric"/>
+                        <Label Text="Valor de la Propina"/>
+                        <Entry Placeholder="En % la propina" x:Name="Propina" Keyboard="Numeric"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="1" Grid.Column="1" Padding="20,1">
+                        <Label Text="Propina"/>
+                        <Entry Style="{StaticResource Entry2}" x:Name="VrPropina" IsReadOnly="True"/>
+                        <Label Text="Propina por personas"/>
+                        <Entry Style="{StaticResource Entry2}" x:Name="IndPropina" IsReadOnly="True"/>
+                        <Label Text="Total mas la propina"/>
+                        <Entry Style="{StaticResource Entry2}" x:Name="Totalmaspropina" IsReadOnly="True"/>
+                        <Label Text="Total de cada persona"/>
+                        <Entry Style="{StaticResource Entry2}" x:Name="Totalind" IsReadOnly="True"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="3" Grid.Column="0">
+                        <Button Text="Total Cuenta"
+                            BackgroundColor="Blue"
+                            BorderRadius="30"
+                            HorizontalOptions="Center"
+                            TextColor="Black"
+                            Clicked="Cuenta"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="3" Grid.Column="1">
+                        <Button Text="Limpiar campos"
+                            BackgroundColor="Blue" 
+                            BorderRadius="30"
+                            HorizontalOptions="Center"
+                            TextColor="Black"
+                            Clicked="Limpiar"/>
+                    </StackLayout>
+                </Grid>
+
+            </Frame>
+
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
